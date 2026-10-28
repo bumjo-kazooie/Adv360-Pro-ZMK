@@ -35,6 +35,26 @@
           #binding-cells = <0>;
           bindings = <&tog 5 &kp LG(LS(P))>;
       };
+
+      // Types "->" (used by the . + / combo below)
+      arrow: arrow {
+          compatible = "zmk,behavior-macro";
+          #binding-cells = <0>;
+          bindings = <&kp MINUS &kp GT>;
+      };
+    };
+
+    // Press . and / together for "->" (Base and Keypad layers only).
+    // Short timeout and prior-idle, so typing "./" or "../" normally does not trigger it.
+    combos {
+      compatible = "zmk,combos";
+      combo_arrow {
+          timeout-ms = <35>;
+          require-prior-idle-ms = <150>;
+          key-positions = <57 58>;
+          bindings = <&arrow>;
+          layers = <0 1>;
+      };
     };
 
   keymap {
