@@ -64,6 +64,23 @@
           bindings = <&arrow>;
           layers = <0 1>;
       };
+
+      // J + K together = left click (hold both to drag), K + L = right click.
+      // For pointing with a trackball on the left while staying on the base layer.
+      combo_lclick {
+          timeout-ms = <35>;
+          require-prior-idle-ms = <150>;
+          key-positions = <41 42>;
+          bindings = <&mkp LCLK>;
+          layers = <0>;
+      };
+      combo_rclick {
+          timeout-ms = <35>;
+          require-prior-idle-ms = <150>;
+          key-positions = <42 43>;
+          bindings = <&mkp RCLK>;
+          layers = <0>;
+      };
     };
 
   keymap {
